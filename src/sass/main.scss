@@ -1,5 +1,6 @@
-@import 'test';
-
-#main {
-  color: #333;
-}
+@import "base/all",
+        "components/all",
+        "layouts/all",
+        "pages/all",
+        "states/all",
+        "themes/all";
