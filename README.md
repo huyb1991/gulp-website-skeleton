@@ -2,7 +2,7 @@
 1. Run web server with [gulp-connect](https://www.npmjs.com/package/gulp-connect).
 2. Auto compile [sass](http://sass-lang.com/) files.
 3. Auto minify css with [gulp-clean-css](https://www.npmjs.com/package/gulp-clean-css).
-4. Auto compress js with [gulp-uglify](https://www.npmjs.com/package/gulp-uglify).
+4. Auto minify js with [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) and compress js with [gulp-concat](https://github.com/contra/gulp-concat).
 
 ##Installation 
 ```
@@ -21,6 +21,7 @@ gws/
 |- src/
 |   |- img/
 |   |- js/
+|       |- min/          # JS file after minify
 |       |- main.js
 |   |- sass/             # SMACSS structure
 |       |- base/
