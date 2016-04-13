@@ -4,7 +4,8 @@ var gulp      = require('gulp'),
     connect   = require('gulp-connect'),
     sass      = require('gulp-sass'),
     cleanCSS  = require('gulp-clean-css'),
-    uglify    = require('gulp-uglify');
+    uglify    = require('gulp-uglify'),
+    concat    = require('gulp-concat');
 
 
 // Server task
@@ -38,8 +39,18 @@ gulp.task('minify-css', function() {
 
 // Minify JS
 gulp.task('minify-js', function() {
-  gulp.src('./src/js/*.js')
+  // Minify JS
+  return gulp.src('./src/js/*.js')
     .pipe(uglify())
+    .pipe(gulp.dest('./src/js/min'));
+  
+});
+
+// Compress JS
+gulp.task('compress-js', function() {
+  // Compress JS to main.js
+  return gulp.src('./src/js/min/*.js')
+    .pipe(concat('main.js'))
     .pipe(gulp.dest('./src'));
 });
 
@@ -49,6 +60,7 @@ gulp.task('watch', function () {
   gulp.watch(['./src/sass/**/*.scss'], ['sass']);
   gulp.watch(['./src/sass/*.css'], ['minify-css']);
   gulp.watch(['./src/js/*.js'], ['minify-js']);
+  gulp.watch(['./src/js/min/*.js'], ['compress-js']);
 });
 
 gulp.task('default', ['connect', 'watch']);
