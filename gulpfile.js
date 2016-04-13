@@ -18,20 +18,20 @@ gulp.task('connect', function() {
 
 // Live-reload for HTML
 gulp.task('html', function () {
-  gulp.src('./src/*.html')
+  return gulp.src('./src/*.html')
     .pipe(connect.reload());
 });
 
 // Compile sass
 gulp.task('sass', function() {
-  gulp.src('./src/sass/**/*.scss')
+  return gulp.src('./src/sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./src/sass'));
 });
 
 // Minify CSS
 gulp.task('minify-css', function() {
-  gulp.src('./src/sass/*.css')
+  return gulp.src('./src/sass/*.css')
     .pipe(cleanCSS())
     .pipe(gulp.dest('./src'));
   
