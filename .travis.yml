@@ -1,7 +1,7 @@
-language: ruby
-rvm:
- - 2.2
- - jruby
- - rbx
-# uncomment this line if your project needs to run something other than `rake`:
-# script: bundle exec rspec spec
+sudo: false
+language: node_js
+node_js:
+  - "0.10"
+  - "0.11"
+  - "0.12"
+  - "stable"
