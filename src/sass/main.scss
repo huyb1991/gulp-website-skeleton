@@ -1,5 +1,10 @@
-@import 'test';
+@import "base/all",
+        "components/all",
+        "layouts/all",
+        "pages/all",
+        "states/all",
+        "themes/all";
 
-#main {
-  color: #333;
+.copy-right {
+  text-align: right;
 }
