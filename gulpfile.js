@@ -5,7 +5,8 @@ var gulp      = require('gulp'),
     sass      = require('gulp-sass'),
     cleanCSS  = require('gulp-clean-css'),
     uglify    = require('gulp-uglify'),
-    concat    = require('gulp-concat');
+    concat    = require('gulp-concat'),
+    jade      = require('gulp-jade');
 
 
 // Server task
@@ -54,6 +55,13 @@ gulp.task('compress-js', function() {
     .pipe(gulp.dest('./src'));
 });
 
+// Compile Jade template to HTML
+gulp.task('compile-jade', function() {
+  return gulp.src('./src/jade/*.jade')
+    .pipe(jade())
+    .pipe(gulp.dest('./src/stattics'));
+});
+
 // Watch;
 gulp.task('watch', function () {
   gulp.watch(['./src/*.html'], ['html']);
@@ -61,6 +69,7 @@ gulp.task('watch', function () {
   gulp.watch(['./src/sass/*.css'], ['minify-css']);
   gulp.watch(['./src/js/*.js'], ['minify-js']);
   gulp.watch(['./src/js/min/*.js'], ['compress-js']);
+  gulp.watch(['./src/jade/*.jade'], ['compile-jade']);
 });
 
 gulp.task('default', ['connect', 'watch']);
