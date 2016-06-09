@@ -59,7 +59,7 @@ gulp.task('compress-js', function() {
 gulp.task('compile-jade', function() {
   return gulp.src('./src/jade/*.jade')
     .pipe(jade())
-    .pipe(gulp.dest('./src/stattics'));
+    .pipe(gulp.dest('./src/statics'));
 });
 
 // Watch;
