@@ -12,14 +12,14 @@ var gulp      = require('gulp'),
 // Server task
 gulp.task('connect', function() {
   connect.server({
-    root: 'src',
+    root: 'src/statics',
     livereload: true
   });
 });
 
 // Live-reload for HTML
 gulp.task('html', function () {
-  return gulp.src('./src/*.html')
+  return gulp.src('./src/statics/*.html')
     .pipe(connect.reload());
 });
 
@@ -34,7 +34,7 @@ gulp.task('sass', function() {
 gulp.task('minify-css', function() {
   return gulp.src('./src/sass/*.css')
     .pipe(cleanCSS())
-    .pipe(gulp.dest('./src'));
+    .pipe(gulp.dest('./src/statics'));
   
 });
 
@@ -52,7 +52,7 @@ gulp.task('compress-js', function() {
   // Compress JS to main.js
   return gulp.src('./src/js/min/*.js')
     .pipe(concat('main.js'))
-    .pipe(gulp.dest('./src'));
+    .pipe(gulp.dest('./src/statics'));
 });
 
 // Compile Jade template to HTML
